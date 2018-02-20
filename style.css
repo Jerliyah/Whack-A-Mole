@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+div.area {
+    flex-basis: 33%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+div.mole {
+    background: brown;
+    height: 3em;
+    width: 1em;
+
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    
+}
+
+div.hole {
+    background: lightsalmon;
+    height: 2em;
+    width: 4em;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
