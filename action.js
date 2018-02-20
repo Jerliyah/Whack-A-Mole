@@ -8,14 +8,25 @@ var last_area;
 
 
 /* ====== Functions ====== */
-function peep(area) {
-    let mole = area.querySelector('.mole');
-    let height = getComputedStyle(mole).getPropertyValue('--height')
+function initiate() {
+    countdown = setInterval( () => {
+        let area = random_area(areas)
 
-    mole.style.marginTop = 0;
+        if( area ) { peep(area.querySelector('.mole')) }
+        else {
+            clearInterval(countdown);
+            initiate()
+        }
+    }, random(500,2000))
+}
+
+
+
+function peep(mole) {
+    mole.classList.add('mole-active')
 
     setTimeout( () => {
-        mole.style.marginTop = height;
+        mole.classList.remove('mole-active')
     }, 1000)
 }
 
@@ -28,6 +39,13 @@ function populate_page(how_many) {
                 <div class="hole"></div>
             </div>`)
     }
+
+    let moles = Array.from( body.querySelectorAll('.mole') )
+    // console.log(moles)
+    
+    moles.forEach( mole => {
+        mole.addEventListener('click', whack)
+    })
     
 }
 
@@ -38,7 +56,6 @@ function random(min,max) {
 
 
 function random_area(areas) {
-    countdown = setInterval( () => {
         let area = areas[ random(0, areas.length-1) ];
 
         // if(last_area) { console.log("last: " + last_area.dataset.count) }
@@ -47,15 +64,12 @@ function random_area(areas) {
 
         if( area === last_area ) {
             // console.log("found a copy")
-            clearInterval(countdown)
             random_area(areas)
         }
         else {
-            peep(area)
+            last_area = area;
+            return area;
         }
-
-        last_area = area;
-    }, random(500,3000))
 }
 
 
@@ -64,8 +78,13 @@ function stop() {
 }
 
 
+function whack() {
+    
+}
+
+
 
 /* ====== Events ====== */
 populate_page(6)
 var areas = Array.from( document.querySelectorAll('div.area') )
-random_area(areas)
+// initiate()

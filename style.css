@@ -24,31 +24,31 @@ div.area {
 }
 
 div.mole {
-    --height: var(--mole-height);
-
     background: brown;
-    height: var(--height);
+    height: var(--mole-height);
     width: 1em;
 
     position:relative;
     left: 50%;
     transform: translateX(-50%);
-    z-index: -1;
+    z-index: 1;
 
-    margin-top: var(--height);
-    transition: all 0.2s;
+    /* margin-top: var(--mole-height); */
+    transition: all 0.15s;
+}
+
+div.mole-active {
+    margin-top: 0;
 }
 
 div.hole {
-    --height: var(--hole-height);
-
     background: lightsalmon;
-    height: var(--height);
+    height: var(--hole-height);
     width: 4em;
 
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 2;
 }
