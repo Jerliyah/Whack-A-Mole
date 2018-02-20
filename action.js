@@ -10,10 +10,12 @@ var last_area;
 /* ====== Functions ====== */
 function peep(area) {
     let mole = area.querySelector('.mole');
-    mole.style.opacity = 1;
+    let height = getComputedStyle(mole).getPropertyValue('--height')
+
+    mole.style.marginTop = 0;
 
     setTimeout( () => {
-        mole.style.opacity = 0;
+        mole.style.marginTop = height;
     }, 1000)
 }
 
