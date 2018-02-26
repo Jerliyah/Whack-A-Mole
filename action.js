@@ -4,7 +4,9 @@ var body = document.querySelector('body');
 
 /* ====== Variables ====== */
 var countdown;
+let peep_time;
 var last_area;
+var scoreboard = 0;
 
 
 /* ====== Functions ====== */
@@ -17,7 +19,7 @@ function initiate() {
             clearInterval(countdown);
             initiate()
         }
-    }, random(500,2000))
+    }, random(1000,2500) /*1000*/)
 }
 
 
@@ -25,9 +27,9 @@ function initiate() {
 function peep(mole) {
     mole.classList.add('mole-active')
 
-    setTimeout( () => {
+    peep_time = setTimeout( () => {
         mole.classList.remove('mole-active')
-    }, 1000)
+    }, 1500)
 }
 
 
@@ -79,7 +81,16 @@ function stop() {
 
 
 function whack() {
+    scoreboard += 1;
+
+    clearTimeout(peep_time)
+    this.classList.add('mole-whacked');
     
+
+    setTimeout( () => {
+        this.classList.remove('mole-whacked');
+        this.classList.remove('mole-active');
+    }, 1000)
 }
 
 
@@ -87,4 +98,4 @@ function whack() {
 /* ====== Events ====== */
 populate_page(6)
 var areas = Array.from( document.querySelectorAll('div.area') )
-// initiate()
+initiate()

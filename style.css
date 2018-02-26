@@ -24,6 +24,8 @@ div.area {
 }
 
 div.mole {
+
+    box-sizing: border-box;
     background: brown;
     height: var(--mole-height);
     width: 1em;
@@ -33,12 +35,16 @@ div.mole {
     transform: translateX(-50%);
     z-index: 1;
 
-    /* margin-top: var(--mole-height); */
-    transition: all 0.15s;
+    margin-top: var(--mole-height);
+    transition: all 0.3s;
 }
 
 div.mole-active {
     margin-top: 0;
+}
+
+div.mole-whacked {
+    box-shadow: 0 0 10px black;
 }
 
 div.hole {
