@@ -2,7 +2,17 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
+}
 
+#scoreboard {
+    height: 10%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+main {
+    height: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

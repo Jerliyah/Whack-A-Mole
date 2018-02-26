@@ -1,5 +1,6 @@
 /* ====== DOM Grab ====== */
-var body = document.querySelector('body');
+var main = document.querySelector('main');
+var score = document.querySelector('#scoreboard > span')
 
 
 /* ====== Variables ====== */
@@ -11,6 +12,8 @@ var scoreboard = 0;
 
 /* ====== Functions ====== */
 function initiate() {
+    score.innerText = scoreboard;
+
     countdown = setInterval( () => {
         let area = random_area(areas)
 
@@ -35,14 +38,14 @@ function peep(mole) {
 
 function populate_page(how_many) {
     for(let i=0; i < how_many; i++) {
-        body.insertAdjacentHTML('beforeend',
+        main.insertAdjacentHTML('beforeend',
             `<div class="area" data-count="${i}">
                 <div class="mole"></div>
                 <div class="hole"></div>
             </div>`)
     }
 
-    let moles = Array.from( body.querySelectorAll('.mole') )
+    let moles = Array.from( main.querySelectorAll('.mole') )
     // console.log(moles)
     
     moles.forEach( mole => {
@@ -81,11 +84,15 @@ function stop() {
 
 
 function whack() {
-    scoreboard += 1;
+
+    // To ensure that the user can't get more than 1 point on a whacked mole
+    if( ! this.classList.contains('mole-whacked') ) {
+        scoreboard += 1;
+        score.innerText = scoreboard;
+    }
 
     clearTimeout(peep_time)
     this.classList.add('mole-whacked');
-    
 
     setTimeout( () => {
         this.classList.remove('mole-whacked');
