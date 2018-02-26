@@ -23,26 +23,34 @@ main {
 
 div.area {
     flex-basis: 33%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
 
-    --mole-height: 3em;
-    --hole-height: 2em;
+    --mole-height: 6em;
+    --hole-height: 4em;
 
     height: calc( var(--mole-height) + var(--hole-height) )
 }
 
 div.mole {
+    background-image: url('mole.png');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 
     box-sizing: border-box;
-    background: brown;
     height: var(--mole-height);
-    width: 1em;
+    width: 110px;
 
-    position:relative;
+    /* position:relative;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
     z-index: 1;
 
     margin-top: var(--mole-height);
@@ -54,13 +62,16 @@ div.mole-active {
 }
 
 div.mole-whacked {
-    box-shadow: 0 0 10px black;
+    background-image: url('whacked-mole.png');
+    animation: wobble 0.75s;
 }
 
 div.hole {
-    background: lightsalmon;
+    background-image: url('mound.png');
+    background-size: 100% 100%;
+
     height: var(--hole-height);
-    width: 4em;
+    width: 100%;
 
     position: absolute;
     bottom: 0;
@@ -68,3 +79,20 @@ div.hole {
     transform: translateX(-50%);
     z-index: 2;
 }
+
+
+@keyframes wobble {
+    0% {
+        transform: rotate(0deg);
+    }
+    33% {
+        transform: rotate(-45deg);
+    }
+    66% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
