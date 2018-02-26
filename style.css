@@ -2,13 +2,17 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
+
+    background: linear-gradient(to top, #6699ff, #ccffff);
 }
 
 #scoreboard {
+    box-sizing: border-box;
     height: 10%;
     margin: 0;
-    padding: 0;
+    padding: 1em 0 0 0;
     text-align: center;
+    font-family: sans-serif;
 }
 
 main {
@@ -23,7 +27,7 @@ main {
 
 div.area {
     flex-basis: 33%;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
