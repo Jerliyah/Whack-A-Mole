@@ -1,3 +1,9 @@
+/*
+    TODO:
+    - Score to win
+    - Leveling system?
+*/
+
 /* ====== DOM Grab ====== */
 var main = document.querySelector('main');
 var score = document.querySelector('#scoreboard > span')

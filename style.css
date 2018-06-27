@@ -43,7 +43,7 @@ div.area {
 }
 
 div.mole {
-    background-image: url('mole.png');
+    background-image: url('images/mole.png');
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -66,12 +66,12 @@ div.mole-active {
 }
 
 div.mole-whacked {
-    background-image: url('whacked-mole.png');
+    background-image: url('images/whacked-mole.png');
     animation: wobble 0.75s;
 }
 
 div.hole {
-    background-image: url('mound.png');
+    background-image: url('images/mound.png');
     background-size: 100% 100%;
 
     height: var(--hole-height);
