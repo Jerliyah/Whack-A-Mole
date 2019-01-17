@@ -17,17 +17,28 @@ body {
 
 main {
     height: 90%;
+    width: 100vw;
+    max-width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 1200px) {
+    main {
+        padding: 0 5vw;
+    }
+}
+@media screen and (min-width: 1200px) {
+    main {
+        padding: 0 calc( (100vw - 1100px) / 2);
+    }
 }
 
 
 
 div.area {
-    flex-basis: 33%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,6 +51,16 @@ div.area {
     --hole-height: 4em;
 
     height: calc( var(--mole-height) + var(--hole-height) )
+}
+@media screen and (max-width: 800px) {
+    div.area {
+        flex-basis: 50%;
+    }
+}
+@media screen and (min-width: 800px) {
+    div.area {
+        flex-basis: 30%;
+    }
 }
 
 div.mole {
